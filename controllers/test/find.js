@@ -8,7 +8,7 @@ const async = require('async');
 module.exports = {
   allOt: allOt,
   list: list,
-  items: items
+  items: allItems
 };
 
 function allOt (req, res, next) {
@@ -62,7 +62,7 @@ function list (req, res, next) {
   });
 }
 
-function items (req, res, next) {
+function allItems (req, res, next) {
   itemsModel.find({}, function (err, items) {
     if (err) return res.status(500).json(err);
     res.status(200).json(items);
