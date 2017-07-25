@@ -46,16 +46,16 @@ function list (req, res, next) {
     num: req.body.num,
     serial: req.body.serial,
     mac: req.body.mac,
-    items: req.body.item
+    item: req.body.item
   });
 
   newEntry.save(function (err, results) {
     if (err) return res.status(500).json(err);
-    numsModel.findOneAndRemove({Num: newEntry.num}, function (err, nums) {
+    numsModel.findOneAndRemove({Num: req.body.num}, function (err, nums) {
       if (err) return res.status(500).json(err);
-      serialModel.findOneAndRemove({Num: newEntry.serial}, function (err, nums) {
+      serialModel.findOneAndRemove({serial: req.body.serial}, function (err, serials) {
         if (err) return res.status(500).json(err);
-        res.status(200).json('ok');
+        res.status(200).json([results, nums, serials]);
       });
     })  
   });
