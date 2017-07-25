@@ -7,12 +7,13 @@ const async = require('async');
 
 module.exports = {
   allOt: allOt,
-  list: list
+  list: list,
+  items: items
 };
 
 function allOt (req, res, next) {
   let opts = {
-    body: req.body
+    ot: req.params.ot
   };
 
   let tasks = [
@@ -39,7 +40,7 @@ function items (params, next) {
 }
 
 function nums (params, next) {
-  numsModel.find({OT: params.body.ot}, function (err, nums) {
+  numsModel.find({OT: params.ot}, function (err, nums) {
     if (err) next(err);
     params.nums = nums;
     next(null, params);
@@ -47,7 +48,7 @@ function nums (params, next) {
 }
 
 function serials (params, next) {
-  serialModel.find({OT: params.body.ot}, function (err, serials) {
+  serialModel.find({OT: params.ot}, function (err, serials) {
     if (err) next(err);
     params.serials = serials;
     next(null, params);
@@ -58,5 +59,12 @@ function list (req, res, next) {
   listModel.find({}, function (err, list) {
     if (err) return res.status(500).json(err);
     res.status(200).json(list);
+  });
+}
+
+function items (req, res, next) {
+  itemsModel.find({}, function (err, items) {
+    if (err) return res.status(500).json(err);
+    res.status(200).json(items);
   })
 }
