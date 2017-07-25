@@ -51,7 +51,13 @@ function list (req, res, next) {
 
   newEntry.save(function (err, results) {
     if (err) return res.status(500).json(err);
-    res.status(200).json(results);
+    numsModel.findOneAndRemove({Num: newEntry.num}, function (err, nums) {
+      if (err) return res.status(500).json(err);
+      serialModel.findOneAndRemove({Num: newEntry.serial}, function (err, nums) {
+        if (err) return res.status(500).json(err);
+        res.status(200).json('ok');
+      });
+    })  
   });
 }
 
