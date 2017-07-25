@@ -1,5 +1,6 @@
 module.exports = {
-  otsNumbs: require('./otsNumbs'),
-  otsSerials: require('./otsSerials'),
-  list: require('./list')
+  otsNumbs: require('./otsNumbs.js'),
+  otsSerials: require('./otsSerials.js'),
+  list: require('./list.js'),
+  items: require('./items.js')
 };
