@@ -16,7 +16,7 @@ function numAndSerial (req, res, next) {
   async.each(req.body.nums, loop, end);
 
   function loop (each, callbackLoop) {
-    let newEntry = blaModel(req.params.ot, each);
+    let newEntry = blaModel(req.body.ot, each);
 
     newEntry.save(function (err, results) {
       if (err) return callbackLoop(err);
@@ -26,7 +26,7 @@ function numAndSerial (req, res, next) {
 
   function end () {
     numOrSerial = false;
-    async.each(req.body.nums, loop, endSerial);
+    async.each(req.body.serials, loop, endSerial);
   }
 
   function endSerial () {
