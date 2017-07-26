@@ -7,5 +7,5 @@ module.exports = function (app) {
   app.post('/items', controllers.test.insert.items);
   app.post('/numAndSerial', controllers.test.insert.numAndSerial);
   app.post('/list', controllers.test.insert.list);
-  // app.get('/', controllers.test.init);
+  app.get('/', controllers.test.init);
 };
