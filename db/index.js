@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const config = require('../config').db;
+const config = 'mongodb://test:test123@ds119533.mlab.com:19533/seat_hosting';
 
 module.exports = {
   start: start,
