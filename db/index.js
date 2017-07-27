@@ -7,7 +7,7 @@ module.exports = {
 };
 
 function start () {
-  mongoose.connect(config.mongodb);
+  mongoose.connect(config);
 }
 
 function stop () {
