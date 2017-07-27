@@ -1,3 +1,3 @@
 module.exports = {
-  isLoggedIn = require('./isLoggedIn.js')
+  isLoggedIn: require('./isLoggedIn.js')
 };
