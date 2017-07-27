@@ -1,5 +1,3 @@
-// config/passport.js
-
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt-nodejs');
 const userModel = require('../models').user;
@@ -26,6 +24,7 @@ module.exports = function (passport) {
 
 function verification (req, username, password, done) {
   userModel.find({username: username}, function (err, user) {
+    console.log(user);
     if (err) return done(err);
     if (!user.length) return done(null, false, req.flash('loginMessage', 'Esse utilizador não foi encontrado.'));
     if (!bcrypt.compareSync(password, user.password)) return done(null, false, req.flash('loginMessage', 'Oops! Password Incorrecta.'));
