@@ -8,7 +8,7 @@ module.exports = function (passport) {
   });
 
   passport.deserializeUser((id, done) => {
-    userModel.find({id: id}, function (err, user) {
+    userModel.findOne({id: id}, function (err, user) {
       done(err, user);
     });
   });
@@ -21,7 +21,7 @@ module.exports = function (passport) {
       passReqToCallback: true
     },
     (req, username, password, done) => {
-      userModel.find({username: username}, function (err, user) {
+      userModel.findOne({username: username}, function (err, user) {
         console.log(err);
         console.log(user);
         if (err) return done(err);
