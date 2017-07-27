@@ -12,7 +12,7 @@ module.exports = function (req, res, next) {
     provider: req.body.provider
   });
 
-  newEntry.save(values, function (err, results) {
+  newEntry.save(function (err, results) {
     if (err) return res.status(500).json(err);
     res.status(200).json(results);
   });
