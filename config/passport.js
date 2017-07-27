@@ -21,7 +21,6 @@ module.exports = function (passport) {
       passReqToCallback: true
     },
     (req, username, password, done) => {
-      return done(null, {id: '_312312'}) 
       userModel.find({username: username}, function (err, user) {
         console.log(err);
         console.log(user);
