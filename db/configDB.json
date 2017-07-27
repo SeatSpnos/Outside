@@ -1,8 +1,0 @@
-{
-	"connectionLimit": 10,
-  "host": "wdt19167",
-  "user": "test",
-  "password": "123test",
-  "multipleStatements": true,
-  "dateStrings": "date"
-}
