@@ -1,3 +1,15 @@
-const ENV = process.env.NODE_ENV || 'dev';
+const mongoose = require('mongoose');
+const config = require('../config').db;
 
-module.exports = require('./' + ENV);
+module.exports = {
+  start: start,
+  stop: stop
+};
+
+function start () {
+  mongoose.connect(config.mongodb);
+}
+
+function stop () {
+  mongoose.disconnect();
+}

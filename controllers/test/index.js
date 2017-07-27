@@ -5,7 +5,6 @@ module.exports = {
 };
 
 function init (req, res, next) {
-  let path = require("path");
-  //console.log(path.join(__dirname, '..', '..', 'public/pages/test/index.html'))
+  let path = require('path');
   res.sendFile(path.join(__dirname, '..', '..', 'public/pages/test/index.html'));
 }

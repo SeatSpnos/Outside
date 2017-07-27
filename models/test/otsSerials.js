@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const otsSerialsSchema = new Schema({
   OT: String,
-  serial: String,
+  serial: String
 });
 
 module.exports = mongoose.model('otsSerials', otsSerialsSchema);

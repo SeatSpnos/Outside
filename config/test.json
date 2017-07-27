@@ -1,7 +1,1 @@
-{
-  "host": "wdt19167",
-  "user": "test",
-  "password": "123test",
-  "multipleStatements": true,
-  "dateStrings": "date"
-}
+"mongodb://test:test123@ds119533.mlab.com:19533/seat_hosting"
