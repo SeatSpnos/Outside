@@ -4,7 +4,7 @@ const auth = require('../../controllers').auth;
 const passport = require('passport');
 
 router.get('/', auth.init);
-router.post('/', passport.authenticate('local', {
+router.post('/', passport.authenticate('local-login', {
   sucessRedirect: '/',
   failureRedirect: '/login',
   failureFlash: true
