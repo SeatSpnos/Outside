@@ -1,6 +1,7 @@
 module.exports = {
   test: require('./test'),
   auth: require('./auth'),
+  API: require('./API'),
   init: init
 };
 
